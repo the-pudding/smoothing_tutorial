@@ -46,8 +46,11 @@ p {
 .text-container {
     max-width: 40rem;
     margin: 0 auto;
-    padding-right: 3rem;
-    padding-left: 3rem;    
+}
+
+p .text-container{
+  padding-right: 3rem;
+  padding-left: 3rem;  
 }
 
 .code-snippet {
