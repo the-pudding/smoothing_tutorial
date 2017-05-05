@@ -27,13 +27,13 @@ IDs<-row.names(as(shapefile_albers, "data.frame"))
 
 
 # Creating a list of neighbors for each location, using the 5 nearest neighbors 
-knn5 <- knn2nb(knearneigh(coords, k = 5), row.names = IDs)
-knn5 <- include.self(knn5)
+knn50 <- knn2nb(knearneigh(coords, k = 50), row.names = IDs)
+knn50 <- include.self(knn50)
 
 
 
 # Creating the localG statistic for each of counties, with a k-nearest neighbor value of 5, and round this to 3 decimal places
-localGvalues <- localG(x = as.numeric(shapefile_df$hs_pct), listw = nb2listw(knn5, style = "B"), zero.policy = TRUE)
+localGvalues <- localG(x = as.numeric(shapefile_df$hs_pct), listw = nb2listw(knn50, style = "B"), zero.policy = TRUE)
 localGvalues <- round(localGvalues,3)
 
 # Create a new data frame that only includes the county fips codes and the G scores
