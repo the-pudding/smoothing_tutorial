@@ -41,6 +41,8 @@ p {
     margin: 1.5rem auto;
     font-size: 18px;
     line-height: 1.7;
+    padding-left: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 .text-container {
@@ -48,12 +50,12 @@ p {
     margin: 0 auto;
 }
 
-p .text-container{
+/*p .text-container{
   /*padding-right: 1.5rem;
   padding-left: 1.5rem;*/
   margin-right: 1rem;
   margin-left: 1rem;
-}
+}*/
 
 .code-snippet {
   max-width: 60rem;
