@@ -176,6 +176,13 @@
 		American television tastes</a> and Jack Grieve’s research on the <a href="https://sites.google.com/site/wordmapperinfo/">spread
 		of new words</a>.
 
+		<div class="shorty-gif">
+		        <div style="position:relative;padding-bottom:64%"><iframe src="https://gfycat.com/ifr/ValuableTanCottontail" frameborder="0" scrolling="no" width="100%" height="100%" style="position:absolute;top:0;left:0;" allowfullscreen=""></iframe>
+		        <div class="shorty-gif-white"></div>
+		      </div>
+
+		      </div>
+
 		<p>
 		Since figuring how to do this can be a somewhat time-consuming process (shout out to Jack Grieve for his code and advice here!),
 		I decided to put together a step-by-step tutorial on how to smooth data. This guide is in R (sorry, fellow pandas users), but
@@ -239,8 +246,14 @@
 		<li>A county-level <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_counties.html">data set</a> of the percentage of U.S. adults who only have a high school diploma (2011-2015)</li>
 		</ol>
 
+		<p>What does this data look like when we map it?</p>
+		<div class= "shorty-gif">
+		<img src="img/tutorial_smoothing_0.png"
+		</div>
+
 		<p>
-		Whew! You’ve installed all the dependencies, got hold of a fancy dataset, and are ready to trade in the coarse,
+		Geeze, I <stron>hate</strong> how accurate this map is. I don't want to know which specific counties have
+		high rates of adults with a high school-only education. Let's trade in the coarse,
 		harsh world of granular mapping for some smoooooooth <a href="https://www.youtube.com/watch?v=f2UzbFYi2Go">flavor country</a>.
 		</p>
 
@@ -334,7 +347,7 @@ kn5 <- knn2nb(knearneigh(coords, k = 5), row.names = IDs)</code></pre>
 
 <div class='text-container'>
 		<p>
-		We now have to indicate which value to give locations with no neighbours. I'm not interested in those areas, so am setting this to 0:
+		We now have to indicate which value to give locations with no neighbours. I want to permit them:
 		</p>
 </div>
 
@@ -380,7 +393,14 @@ new_df$values <- temporary
 write.table(row.names = FALSE,new_df, file = "smoothing_knn5.csv", sep=",")</code></pre>
 </div>
 
+
 <div class='text-container'>
+<p> The end result:</p>
+</div>
+<div class= "shorty-gif">
+<img src="img/tutorial_smoothing_50.png"
+</div>
+
 		<p>
 		Hey map, are you a classic Rob Thomas ft. Santana track? Because you're vv smooth.
 		</p>

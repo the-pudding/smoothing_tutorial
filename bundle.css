@@ -65,3 +65,28 @@ ul {
 main {
   padding-bottom: 3rem;
 }
+
+
+.shorty-gif {
+    max-width: 560px;
+    margin: 0 auto;
+    width: 100%;
+    pointer-events: none;
+    background: #f3f3f3;
+    position: relative;
+    /* height: 360px; */
+    margin-top: 10px;
+    background: white;
+    /* border-top: 1px solid #f3f3f3; */
+    /* border-bottom: 1px solid #f3f3f3; */
+    f3; */
+}
+
+.shorty-gif-white {
+    width: 12%;
+    height: 10%;
+    position: absolute;
+    bottom: 2px;
+    right: 0px;
+    background: white;
+}
