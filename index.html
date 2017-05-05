@@ -193,7 +193,7 @@
 
 		<p>
 		Regional smoothing in R involves the use of Roger Bivand’s <a href="https://cran.r-project.org/web/packages/spdep/index.html">
-		Spatial Dependence</a> package to create neighbours
+		Spatial Dependence</a> package to create neighbors
 		lists through the <a href="https://www.rdocumentation.org/packages/spdep/versions/0.6-9/topics/nb2listw">nb2listw()</a> function,
 		and computing the <a href="http://onlinelibrary.wiley.com/store/10.1111/j.1538-4632.1995.tb00912.x/asset/j.1538-4632.1995.tb00912.x.pdf?v=1&t=iyxk31qq&s=28e2228049fb5da8fab7c2d65a55cba649c0a0d2">
 		Gettis-Ord statistic</a>/<a href="http://artax.karlin.mff.cuni.cz/r-help/library/spdep/html/localG.html">local G</a> statistic/z-score.
@@ -203,7 +203,7 @@
 
 		<p>
 		All these fancy words mean that for every single geographic location in your dataset, we’ll be calculating a list
-		of neighbouring locations. Based on the values of these neighbours, we’re going to calculate the probability that
+		of neighboring locations. Based on the values of these neighbors, we’re going to calculate the probability that
 		each location in question has a high value.
 	</p>
 
@@ -211,8 +211,7 @@
 
 		<h4>What you’ll need: Dependencies</h4>
 		<p>
-		Before we jump into R, we’ll have to set up GDAL, a geospatial library. I’ve put together a list of
-		dependencies you’ll need to install beforehand (all relatively painless), with instructions available in each link:
+		Before we jump into R, we’ll have to set up a few dependencies. I’ve put together a list of these, with instructions available in each link:
 		</p>
 
 		<ol>
@@ -220,7 +219,7 @@
 		<li><a href="https://developer.apple.com/xcode/downloads/">Xcode</a></li>
 		<li><a href="https://brew.sh/">Homebrew</a></li>
 		<li><a href="https://trac.osgeo.org/gdal/wiki/BuildingOnMac">GDAL</a></li>
-		<li><a href="https://www.rstudio.com/products/RStudio/">RStudio</a> (if you’re the sort of debonair user who runs R without an IDE, kudos, hit me up with your autograph)</li>
+		<li><a href="https://www.rstudio.com/products/RStudio/">RStudio</a></li>
 		</ol>
 
 		<h4>What you’ll need: Data</h4>
@@ -263,7 +262,7 @@
 		In the original <a href="http://onlinelibrary.wiley.com/store/10.1111/j.1538-4632.1995.tb00912.x/asset/j.1538-4632.1995.tb00912.x.pdf?v=1&t=j26v7aax&s=bf633ade0805dffc1e1b1cd241fda3e76c4c71b1">paper</a>
 		that J. K. Ord and Arthur Getis published some 20 years ago, the pair suggested a
 		measure called the <strong>Getis-Ord Gi*</strong> to statistically test for geographical hot spots (e.g., of disease, crime, etc.).
-		This is the method we'll be using, and is commonly referred to as the Getis-Ord local
+		This is the method we'll be using, and employs what is commonly referred to as the Getis-Ord local
 		statistic (if you’re interested in reading more, I’d suggest <a href="http://resources.esri.com/help/9.3/arcgisengine/java/gp_toolref/spatial_statistics_tools/how_hot_spot_analysis_colon_getis_ord_gi_star_spatial_statistics_works.htm">ESRI’s quick guide</a>,
 		or the original academic paper).
 		</p>
@@ -314,7 +313,7 @@ library(rgdal)</code></pre>
 
 <div class='text-container'>
 		<p>
-		Next, let's converting the shapefile into a regular data frame and substitute any missing values with 0.
+		Next, let's convert the shapefile into a regular data frame and substitute any missing values with 0.
 		</p>
 </div>
 
@@ -326,13 +325,13 @@ shapefile_df[is.na(shapefile_df)] <-0</code></pre>
 
 <div class='text-container'>
 		<p>
-		Now we can start setting out the neighbours list. Neighbours of a location can usually be defined in one of three ways:
+		Now we can start setting out the neighbors list. neighbors of a location can usually be defined in one of three ways:
 		</p>
 
 		<ol>
 		<li>As polygons that <strong>share a border</strong> with the location in question</li>
 		<li>As being <strong>within a certain distance</strong> from the location in question</li>
-		<li>As <strong>a specific number of neighbours</strong> that are closest to the location; the precise number of neighbours us up to us.
+		<li>As <strong>a specific number of neighbors</strong> that are closest to the location; the precise number of neighbors us up to us.
 		This is calculated using the k-nearest neighbors (KNN) algorithm.</li>
 		</ol>
 
@@ -349,16 +348,16 @@ shapefile_df[is.na(shapefile_df)] <-0</code></pre>
 
 <div class='code-snippet'>
 		<pre class="language-r"><code>coords <- coordinates(shapefile_albers)
-		IDs<-row.names(as(shapefile_albers, "data.frame"))</code></pre>
+IDs<-row.names(as(shapefile_albers, "data.frame"))</code></pre>
 </div>
 
 <div class='text-container'>
 		<p>
-			The number of neighbors you us is going to significantly
-			affect the degree of smoothing, so I'd suggest using your best judgment and experimenting with a range of weights.
-			Let's set up the neighbors list using the 50 nearest neighbors for each location; this is high, but is useful for illustration.
+			The number of neighbors you use is going to significantly
+			affect the degree of smoothing, so I'd suggest using your best judgment and experimenting with a range.
+			Let's set up the neighbors list using the 50 nearest neighbors for each location; this is high, but is useful for the sake of illustration.
 			To make sure that we don’t get weird doughnut-type holes around each high-value area, we'll also need to include that
-			area as one of its neighbours.
+			area as one of its neighbors.
 		</p>
 </div>
 
@@ -372,10 +371,10 @@ knn50 <- include.self(knn50)</pre>
 
 <div class='text-container'>
 		<p>
-		We’re now ready to create the localG statistics — these statistics represent the likelihood that each location
+		We’re now ready to create the localG statistics — these represent the likelihood that each location
 		has a high percentage of adults with a high school-only education. We’ll first create a regular data frame, ensure
-		that its NA values are replaced by 0s, and calculate localGs for each of the columns which contain our data. Then,
-		we'll write
+		that its NA values are replaced by 0s, and calculate localGs for each of the columns which contain our data. Finally,
+		we'll write the data frame to a CSV.
 		</p>
 </div>
 
@@ -402,17 +401,17 @@ write.table(row.names = FALSE,new_df, file = "smooooothstuff.csv", sep=",")</cod
 </div>
 
 		<p>
-		<a href="https://github.com/polygraph-cool/smoothing_tutorial/blob/master/smoothing_tutorial.R">Here's</a> the complete script! Hey map, are you a classic Rob Thomas ft. Santana track? Because you're v. smooth. 
+		<a href="https://github.com/polygraph-cool/smoothing_tutorial/blob/master/smoothing_tutorial.R">Here's</a> the complete script! Hey map, are you a classic Rob Thomas ft. Santana track? Because you're v. smooth.
 		</p>
 
 		<h4>Additional Resources</h4>
 		<ol>
 		<li>There’s a <a href="http://www.colorado.edu/ibs/crs/workshops/R_1-5-2011/root/SpatialReg.pptx">great tutorial by Elisabeth Root</a>,
-		of UC Colorado's Dept. of Geography, which explains the differences between the various neighbours
+		of UC Colorado's Dept. of Geography, which explains the differences between the various neighbors
 		weights algorithms. This is terrific and somewhat more stats-heavy, but I found it to be a very clear guide. </li>
 		<li>For any in-depth questions, <a href="https://stat.ethz.ch/mailman/listinfo/r-sig-geo">here's message board</a> for R and geospatial work.</li>
 		<li><a href="http://www.csiss.org/gispopsci/workshops/2011/PSU/readings/W15_Anselin2007.pdf">Spatial Regression Analysis in R: A Workbook</a></li>
-		<li><a href="https://cran.r-project.org/web/packages/spdep/vignettes/nb.pdf">Creating Neighbours (Roger Bivand’s book chapter)</a></li>
+		<li><a href="https://cran.r-project.org/web/packages/spdep/vignettes/nb.pdf">Creating neighbors (Roger Bivand’s book chapter)</a></li>
 	</ol>
 	</div>
 
