@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang='en' data-version='1493934158191'>
+<head>
+
+	<title>tk</title>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+	<meta name='description' content='tk' />
+	<meta name='news_keywords' content='tk' />
+
+	<meta property='og:title' content='tk' />
+	<meta property='og:site_name' content='The Pudding'/>
+	<meta property='og:url' content='tk' />
+	<meta property='og:description' content='tk' />
+	<meta property='og:type' content='article' />
+	<meta property='og:locale' content='en_US' />
+
+	<meta property='og:image' content='tk' />
+	<meta property='og:image:type' content='image/jpeg' />
+	<meta property='og:image:width' content='1200' />
+	<meta property='og:image:height' content='600' />
+
+	<meta name='twitter:card' content='summary_large_image'>
+	<meta name='twitter:site' content='https://pudding.cool'>
+	<meta name='twitter:creator' content='@puddingviz'>
+	<meta name='twitter:title' content='tk'>
+	<meta name='twitter:description' content='tk'>
+	<meta name='twitter:image:src' content='tk'>
+	<!-- smoosh -->
+
+	<!-- endsmoosh -->
+
+
+	<link rel="stylesheet" href="critical.css" />
+	<link rel="stylesheet" href="bundle.css" />
+	<link rel="stylesheet" href="prism.css" />
+
+
+
+	<style>
+	/*
+	        This font software is the property of Commercial Type.
+
+	        You may not modify the font software, use it on another website, or install it on a computer.
+
+	        License information is available at http://commercialtype.com/eula
+	        For more information please visit Commercial Type at http://commercialtype.com or email us at info[at]commercialtype.com
+
+	        Copyright (C) 2017 Schwartzco Inc.
+	        License: 1704-GNCLGK
+	*/
+
+	/* Canela */
+	@font-face {
+	  font-family: 'Canela Web';
+	  src: url('assets/fonts/Canela-Light-Web.woff2') format('woff2'),
+	       url('assets/fonts/Canela-Light-Web.woff') format('woff');
+	  font-weight:  300;
+	  font-style:   normal;
+	  font-stretch: normal;
+	}
+
+	@font-face {
+	  font-family: 'Canela Web';
+	  src: url('assets/fonts/Canela-Bold-Web.woff2') format('woff2'),
+	       url('assets/fonts/Canela-Bold-Web.woff') format('woff');
+	  font-weight:  700;
+	  font-style:   normal;
+	  font-stretch: normal;
+	}
+
+
+	@font-face {
+	  font-family: 'Publico Text Web';
+	  src: url('assets/fonts/PublicoText-Roman-Web.woff2') format('woff2'),
+	       url('assets/fonts/PublicoText-Roman-Web.woff') format('woff');
+	  font-weight:  400;
+	  font-style:   normal;
+	  font-stretch: normal;
+	}
+
+	@font-face {
+	  font-family: 'Publico Text Web';
+	  src: url('assets/fonts/PublicoText-Bold-Web.woff2') format('woff2'),
+	       url('assets/fonts/PublicoText-Bold-Web.woff') format('woff');
+	  font-weight:  700;
+	  font-style:   normal;
+	  font-stretch: normal;
+	}
+
+	/* Publico Text */
+	@font-face {
+	  font-family: 'Publico Text Web';
+	  src: url('assets/fonts/PublicoText-Italic-Web.woff2') format('woff2'),
+	       url('assets/fonts/PublicoText-Italic-Web.woff') format('woff');
+	  font-weight:  400;
+	  font-style:   italic;
+	  font-stretch: normal;
+	}
+
+
+	@font-face {
+	  font-family: 'Atlas Grotesk Web';
+	  src: url('assets/fonts/AtlasGrotesk-Light-Web.woff2') format('woff2'),
+	       url('assets/fonts/AtlasGrotesk-Light-Web.woff') format('woff');
+	  font-weight:  300;
+	  font-style:   normal;
+	  font-stretch: normal;
+	}
+
+	@font-face {
+	  font-family: 'Atlas Grotesk Web';
+	  src: url('assets/fonts/AtlasGrotesk-Regular-Web.woff2') format('woff2'),
+	       url('assets/fonts/AtlasGrotesk-Regular-Web.woff') format('woff');
+	  font-weight:  400;
+	  font-style:   normal;
+	  font-stretch: normal;
+	}
+
+	/* Atlast Grotesk */
+	@font-face {
+	  font-family: 'Atlas Grotesk Web';
+	  src: url('assets/fonts/AtlasGrotesk-Medium-Web.woff2') format('woff2'),
+	       url('assets/fonts/AtlasGrotesk-Medium-Web.woff') format('woff');
+	  font-weight:  500;
+	  font-style:   normal;
+	  font-stretch: normal;
+	}
+
+	</style>
+	<!-- smoosh -->
+	<script src='critical.js'></script>
+	<!-- endsmoosh -->
+
+	<script src='prism.js'></script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-90567923-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+<body class='tk-publico'>
+
+	<a href='#content' class='skip-to-main'>Skip to main content</a>
+	<header>
+		<a href='https://pudding.cool' target='_blank' class='logo'>
+			<svg xmlns="http://www.w3.org/2000/svg" width="296.82" height="47.3" viewBox="19.357 11.26 296.819 47.303" aria-labelledby="logo__title" role="img">
+	<title id="logo__title">The Pudding</title>
+ 	<path d="M47.76 56.8c-2.5-.2-15.5-.2-18 0v-.44l2.05-.3c1.8-.25 2.5-1.35 2.5-9.35V15.1h-1.9c-3.6 0-5.5 1.75-9.7 9.4l-2.8 5.25h-.5c.3-3.2 1-13.24 1.1-16.6l.1-.04c1.8.2 9.3.5 11.1.5h17.5c2.3 0 11.1-1.4 13.2-2.1l.1.1v15.8h.27l1-1.1c2.9-3.3 5.3-4.4 8-4.4 4.44 0 7.04 2.4 7.04 7.5v11.5c0 7.7.76 8.9 2.66 9.2l1.1.2v.5c-2.38-.2-12.4-.2-14.78 0v-.45l.5-.1c1.55-.44 2.25-1.34 2.25-9.24V30.1c0-2.5-.9-3.4-3.06-3.4-.8 0-1.73.2-3.13.66l-1.8.55v12.9c0 7.9.6 8.8 2.2 9.3l.56.2v.5c-2.38-.2-12.4-.2-14.78 0v-.4l1.06-.2c1.97-.34 2.7-1.54 2.7-9.2V21c-2.43-4.6-5.13-5.75-8.63-5.75h-2.1v31.6c0 8 .6 9.07 2.4 9.37l1.87.3v.46zm3.25-.64h55.7v.65H51v-.6zm45-5.1c-8.5 0-12.3-4.55-12.3-13.8v-1.7C83.7 26.7 88 21.8 97 21.8c7.66 0 11.1 3.26 11.1 12.36v1.8H92.97v3.2c0 7.1 1.9 9 6 9 2.45 0 5-1.25 7.4-2.9l2-1.35.1 1.4-1.6 1.5c-2.95 2.7-6.75 4.4-10.85 4.4zm-3-16.6h7.4v-2.7c0-6.75-1-7.95-3.7-7.95-2.6 0-3.7 1.2-3.7 9.3v1.4zm35.2 22.35c-2.5-.2-15.7-.2-18.2 0v-.4l1.9-.3c1.8-.3 2.4-1.3 2.4-9.3V23.5c0-8.04-.6-9.14-2.4-9.4l-1.8-.24v-.45c1.37.1 7.8.2 9 .2 1.47 0 8.07-.1 9.3-.1 10.37 0 14.97 5.1 14.97 12.8v1.5c0 7.8-4.55 12.8-14.9 12.8h-2.2V39c.55.04 1.1.04 1.5.04 3.8 0 5.35-2.9 5.35-10.44v-3.3c0-7.54-1.54-10.44-5.44-10.44-.4 0-2.6 0-4.04.05v31.8c0 8 .7 9.1 2.5 9.4l2.3.3v.5zm3.3-.6h150.8v.7H131.5v-.6zm22.6-5c-4.4 0-7-2.4-7-7.5V33.2c0-7-.4-8.56-1.8-9l-.6-.2v-.4c1.8-.2 8.4-1.1 10.7-1.66v20.9c0 2.5.9 3.4 3.1 3.4.75 0 1.7-.24 3.1-.64l1.85-.5V33.2c0-6.9-.8-8.2-2.7-8.86l-1.1-.34v-.4c2.1-.2 9.7-1.1 12-1.66v17.9c0 6.86.75 8.2 2.65 8.8l1.1.36v.45c-2.17.16-9.27 1.06-11.58 1.66l-.3-5.4h-.25l-1 1.1c-2.92 3.3-5.32 4.4-8.1 4.4zm32 0c-5.4 0-9-4.4-9-13.6v-2.2c0-9.5 4.3-13.6 11.1-13.6 2.4 0 4.25.5 6.15 2.2l.8.7h.24v-2.6c0-6.5-.76-7.7-2.66-8.3l-1.1-.3v-.4c2.14-.2 9.44-1.1 11.74-1.6v28.2c0 7 .8 8.5 2.7 9.1l1.05.37v.45c-2.1.16-8.95 1.06-11.25 1.66l-.35-5.4h-.27l-1 1.1c-2.95 3.25-5.4 4.4-8.1 4.4zm7.7-5.6l1.6-.5V33.9c0-6.96-1.35-8.8-4.6-8.8-3.3 0-4.65 2.6-4.65 9.54v3.7c0 6.2 1.44 7.9 4.5 7.9.84 0 1.84-.2 3.2-.64zm24.1 5.6c-5.45 0-9-4.4-9-13.6v-2.2c0-9.5 4.2-13.6 11-13.6 2.45 0 4.2.6 6.15 2.2l.84.7h.24v-2.6c0-6.5-.8-7.6-2.7-8.3l-1.06-.3v-.4c2.1-.2 9.45-1.1 11.75-1.6v28.2c0 7 .75 8.5 2.65 9.1l1.1.37v.45c-2.15.16-9 1.06-11.3 1.66l-.35-5.4h-.27l-1 1.1c-2.95 3.25-5.35 4.4-8.1 4.4zm7.65-5.6l1.6-.5V33.9c0-6.96-1.36-8.8-4.66-8.8-3.26 0-4.6 2.6-4.6 9.54v3.7c0 6.2 1.4 7.9 4.44 7.9.84 0 1.84-.2 3.2-.64zm28.1 5.1c-2.16-.2-11.56-.2-13.76 0v-.4l.54-.1c1.6-.4 2.2-1.3 2.2-9.2v-7.7c0-6.9-.76-8.25-2.66-8.85l-1.1-.34v-.4c2.15-.2 9.7-1.1 12-1.64v18.9c0 7.9.7 8.8 2.25 9.28l.5.14v.47zm-12.1-35.3c0-2.6 1.6-4.1 5.1-4.1 3.54 0 5.1 1.5 5.1 4.1 0 2.6-1.56 4.1-5.1 4.1-3.5 0-5.1-1.5-5.1-4.1zm45.14 35.3c-2.36-.2-12.4-.2-14.76 0v-.4l.5-.1c1.54-.4 2.24-1.3 2.24-9.2V30.1c0-2.5-.9-3.4-3.05-3.4-.8 0-1.75.2-3.15.66l-1.8.55v12.9c0 7.9.6 8.8 2.2 9.3l.55.2v.5c-2.37-.2-12.4-.2-14.77 0v-.4l1.05-.2c1.94-.34 2.7-1.54 2.7-9.2v-7.7c0-6.9-.8-8.2-2.7-8.85l-1.1-.34v-.4c2.1-.2 9.2-1.1 11.5-1.64l.35 5.4h.24l1-1.1c2.96-3.23 5.4-4.4 8.1-4.4 4.46 0 7.06 2.37 7.06 7.47v11.5c0 7.7.74 8.9 2.64 9.2l1.1.2v.5zm15.65 7.9h-4.68c-10.46 0-12.3-1.3-12.3-3.4V55c0-1.85 2.53-4.35 7.3-4.35h.24V54c0 1.8 1 2.6 4.74 2.6h4.66c5.03 0 6.83-1.3 6.83-3.2V53c0-1.8-.82-3.2-3.5-3.2h-13.3c-2.72 0-4.2-1.3-4.2-3.7v-.16c0-1.94 1.2-3.54 4.78-5.4l3-1.54v-.5c-5.64-1-8.2-3.46-8.2-7.86v-.24c0-5.55 4.16-8.55 13.1-8.55 2.46 0 4.46.26 6.46.8l.16-.34c1.7-3.4 3.95-5 8-5h.9v5.4h-5.6c-.5 0-1.9.1-2.25.2l-.38.1v.5c3.8 1.1 5.73 3.6 5.73 7.1v.25c0 5.56-4.12 8.56-13.02 8.56-1.35 0-2.55-.1-3.75-.25l-.9 1.1c-.85 1-1.05 1.5-1.05 1.8 0 .36.2.5.6.5h11.63c5.83 0 8.9 2.96 8.9 7.4v.36c0 5.26-5.9 8.5-13.97 8.5zm2.52-27.7v-.7c0-4.7-.86-6.3-4.06-6.3-3.26 0-4.1 1.6-4.1 6.3v.8c0 4.7.9 6.3 4.1 6.3 3.2 0 4.04-1.6 4.04-6.3z"/>
+</svg>
+
+		</a>
+	</header>
+
+
+	<main id='content'>
+
+		<div class='intro'>
+			<h1 class='intro__hed tk-canela'>Regional smoothing using R</h1>
+			<p class='intro__byline tk-atlas'>By <a href='https://twitter.com/puddingviz' target='_blank'><strong>Ilia Blinderman</strong></a></p>
+			<!-- <p class='intro__dek'>Your dek goes here. It is probably one or two sentences that succinctly describe more explicitly what the story will be about.</p> -->
+		</div>
+		<!-- PUT ALL YOUR HTML HERE-->
+		<div class='text-container'>
+
+		<p>
+		Recently, we published a project examining the <a href="https://pudding.cool/2017/02/oscars_so_mapped/">
+		geographic spread of movie preferences</a>, inspired by the New York Times’
+		<a href="https://www.nytimes.com/interactive/2016/12/26/upshot/duck-dynasty-vs-modern-family-television-maps.html?_r=0">map of
+		American television tastes</a> and Jack Grieve’s research on the <a href="https://sites.google.com/site/wordmapperinfo/">spread
+		of new words</a>.
+
+		<p>
+		Since figuring how to do this can be a somewhat time-consuming process (shout out to Jack Grieve for his code and advice here!),
+		I decided to put together a step-by-step tutorial on how to smooth data. This guide is in R (sorry, fellow pandas users), but
+		requires very little R knowledge.
+		</p>
+
+		<h4>What we’ll learn (technical version)</h4>
+
+		<p>
+		Regional smoothing in R involves the use of Roger Bivand’s <a href="https://cran.r-project.org/web/packages/spdep/index.html">
+		Spatial Dependence</a> package to create neighbours
+		lists through the <a href="https://www.rdocumentation.org/packages/spdep/versions/0.6-9/topics/nb2listw">nb2listw()</a> function,
+		and computing the <a href="http://onlinelibrary.wiley.com/store/10.1111/j.1538-4632.1995.tb00912.x/asset/j.1538-4632.1995.tb00912.x.pdf?v=1&t=iyxk31qq&s=28e2228049fb5da8fab7c2d65a55cba649c0a0d2">
+		Gettis-Ord statistic</a>/<a href="http://artax.karlin.mff.cuni.cz/r-help/library/spdep/html/localG.html">local G</a> statistic/z-score.
+		<p>
+
+		<h4> What we’ll learn (human version)</h4>
+
+		<p>
+		All these fancy words mean that for every single geographic location in your dataset, we’ll be calculating a list
+		of neighbouring locations. Based on the values of these neighbours, we’re going to calculate the probability that
+		each location in question has a high value.
+	</p>
+
+
+
+		<h4>What you’ll need: Dependencies</h4>
+		<p>
+		Before we jump into R, we’ll have to set up GDAL, a geospatial library. I’ve put together a list of
+		dependencies you’ll need to install beforehand (all relatively painless), with instructions available in each link:
+		</p>
+
+		<ol>
+		<li><a href="https://www.ruby-lang.org/en/documentation/installation/">Ruby</a></li>
+		<li><a href="https://developer.apple.com/xcode/downloads/">Xcode</a></li>
+		<li><a href="https://brew.sh/">Homebrew</a></li>
+		<li><a href="https://trac.osgeo.org/gdal/wiki/BuildingOnMac">GDAL</a></li>
+		<li><a href="https://www.rstudio.com/products/RStudio/">RStudio</a> (if you’re the sort of debonair user who runs R without an IDE, kudos, hit me up with your autograph)</li>
+		</ol>
+
+		<h4>What you’ll need: Data</h4>
+
+		<p>
+		A shapefile which corresponds to the geographic boundaries you’re looking to map, which contains a data set of
+		values which correspond to the geographies you’re mapping
+		</p>
+
+		<p>
+		If you’ve got data and a shapefile but don’t know how to combine them into a single file,
+		<a href="https://github.com/ledeprogram/courses/blob/de2a8c6d7d3aec06faa62eaef6267a6699e4ce70/foundations/mapping/merging-qgis-simple/README.md">here</a>
+		<a href="https://github.com/ledeprogram/courses/blob/de2a8c6d7d3aec06faa62eaef6267a6699e4ce70/foundations/mapping/merging-qgis-complex/README.md">are</a> a couple of great
+		guides to doing so.
+		</p>
+
+		<p>
+		If you don’t have a dataset in mind and just want to get a hang of smoothing, you can download the shapefile
+		I’ve used for this guide. I’ve created it using:
+
+		<ol>
+		<li>A <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_counties.html">county-level</a> shapefile</li>
+		<li>A county-level <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_counties.html">data set</a> of the percentage of U.S. adults who only have a high school diploma (2011-2015)</li>
+		</ol>
+
+		<p>
+		Whew! You’ve installed all the dependencies, got hold of a fancy dataset, and are ready to trade in the coarse,
+		harsh world of granular mapping for some smoooooooth <a href="https://www.youtube.com/watch?v=f2UzbFYi2Go">flavor country</a>.
+		</p>
+
+		<h4>Code time</h4>
+
+		<p>
+		In the original <a href="http://onlinelibrary.wiley.com/store/10.1111/j.1538-4632.1995.tb00912.x/asset/j.1538-4632.1995.tb00912.x.pdf?v=1&t=j26v7aax&s=bf633ade0805dffc1e1b1cd241fda3e76c4c71b1">paper</a>
+		that J. K. Ord and Arthur Getis published some 20 years ago, the pair suggested a
+		measure called the <strong>Getis-Ord Gi*</strong> to statistically test for geographical hot spots (e.g., of disease, crime, etc.).
+		This is the method we'll be using, and is commonly referred to as the Getis-Ord local
+		statistic (if you’re interested in reading more, I’d suggest <a href="http://resources.esri.com/help/9.3/arcgisengine/java/gp_toolref/spatial_statistics_tools/how_hot_spot_analysis_colon_getis_ord_gi_star_spatial_statistics_works.htm">ESRI’s quick guide</a>,
+		or the original academic paper).
+		</p>
+
+		<p>
+		First, we’ll have to load up a few packages:
+		</p>
+	</div>
+
+		<div class="code-snippet">
+		<pre class="language-r">
+library(proj4)
+library(spdep)
+library(maptools)
+library(rgdal)
+		</pre>
+	</div>
+
+	<div class='text-container'>
+		<p class="x-small">
+		Note: During this setup, you may encounter an error message that reads along the lines of
+		<pre class="language-r">NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared file</pre>
+		</p>
+
+		<p class="x-small">
+		Thankfully, countless other cartographers have come up against precisely this issue; follow this link for a fix!
+		</p>
+
+		<p>
+		Next, read the shapefile into R as a Large Spatial Polygon Data Frame:
+		</p>
+	</div>
+
+		<div class="code-snippet">
+		<pre class="language-r">
+LargeSpatialPolygonDF <-readShapePoly("/directory/shapefile.shp")
+		</pre>
+	</div>
+
+<div class='text-container'>
+		<p>
+		Set the projection for this shapefile, since R doesn’t read it otherwise. Below, I’m using the
+		code EPSG:4326, which refers to the same projection used by the U.S. Dept. of Defense:
+		</p>
+</div>
+
+<div class='code-snippet'>
+		<pre class="language-r">
+proj4string(LargeSpatialPolygonDF)<-CRS("+proj=longlat +init=epsg:4326")
+		</pre>
+</div>
+
+<div class='text-container'>
+		<p>
+		If you’d like to change the projection (I like the Albers projection when looking exclusively at the U.S.),
+		you can do so with another line of code:
+		</p>
+</div>
+
+<div class='code-snippet'>
+		<pre class="language-r">
+shapefile_NAD <-spTransform(LargeSpatialPolygonDF, CRS("+init=ESRI:102003"))
+		</pre>
+</div>
+
+<div class='text-container'>
+		<p>
+		Now we can start setting out the neighbours list. Neighbours of a location can be defined in one of two ways:
+		</p>
+
+		<ol>
+		<li>As adjacent polygons</li>
+		<li>As any number of neighbours that are closest to the location; the precise number of neighbours us up to us.
+		This is calculated using the k-nearest neighbors algorithm.</li>
+		</ol>
+
+		</p>
+		Here’s the code for adjacent polygons:
+		<p>
+</div>
+
+<div class='code-snippet'>
+		<pre class="language-r">
+shapefile_neighbors <- poly2nb(shapefile_NAD)
+		</pre>
+</div>
+
+<div class='text-container'>
+		<p>
+		KNN algorithm code for 5 nearest neighbors (feel free to experiment with the number of neighbours you used
+		depending on the amount of smoothing desired):
+		</p>
+</div>
+
+
+<div class='code-snippet'>
+		<pre class="language-r">
+IDs <- row.names(as(shapefile_NAD, "data.frame"))
+coords <- coordinates(shapefile_NAD)
+kn5 <- knn2nb(knearneigh(coords, k = 5), row.names = IDs)
+		</pre>
+</div>
+
+<div class='text-container'>
+		<p>
+		We now have to indicate which value to give locations with no neighbours:
+		</p>
+</div>
+
+<div class='code-snippet'>
+		<pre class="language-r">
+set.ZeroPolicyOption(TRUE)
+		</pre>
+</div>
+
+<div class='text-container'>
+		<p>
+		To make sure that we don’t get weird doughnut-type holes around each popular area, we need to include that
+		area as one of its neighbours; for each neighbour list, we then need to run the following command:
+		</p>
+</div>
+
+
+<div class='code-snippet'>
+		<pre class="language-r">
+kn5 <- include.self(kn5)
+		</pre>
+</div>
+
+<div class='text-container'>
+		<p>
+		We’re now ready to create the localG statistics — these statistics represent the likelihood that each location
+		has a high percentage of adults with a high school-only education. We’ll first create a regular data frame, ensure
+		that its NA values are replaced by 0s, and calculate localGs for each of the columns which contain our data.
+		</p>
+</div>
+
+<div class='code-snippet'>
+		<pre class="language-r code-snippet">
+working_dF <- as(shapefile_NAD, "data.frame")
+working_dF[is.na(working_dF)] <-0
+
+temporary <- localG(x = as.numeric(working_dF$hs_pct), listw = nb2listw(kn5, style = "B"), zero.policy = TRUE)
+
+
+# Time to add this to a new data frame that only includes the county fips codes, which will then have fips + the G scores
+all_county_codes <- working_dF$GEOID
+all_localgs <- temporary
+new_df <- data.frame(working_dF$GEOID)
+new_df$values <- temporary
+
+# BOOM. This works. First version ready for export.
+write.table(row.names = FALSE,new_df, file = "smoothing_knn5.csv", sep=",")
+
+		</pre>
+</div>
+
+<div class='text-container'>
+		<p>
+		Hey map, are you a classic Rob Thomas ft. Santana track? Because you're vv smooth.
+		</p>
+
+		<h4>Additional Resources</h4>
+		<ol>
+		<li>There’s a <a href="http://www.colorado.edu/ibs/crs/workshops/R_1-5-2011/root/SpatialReg.pptx">great tutorial by Elisabeth Root</a>,
+		of UC Colorado's Dept. of Geography, which explains the differences between the various neighbours
+		weights algorithms. This is terrific and somewhat more stats-heavy, but I found it to be a very clear guide. </li>
+		<li>For any in-depth questions, <a href="https://stat.ethz.ch/mailman/listinfo/r-sig-geo">here's message board</a> for R and geospatial work.</li>
+		<li><a href="http://www.csiss.org/gispopsci/workshops/2011/PSU/readings/W15_Anselin2007.pdf">Spatial Regression Analysis in R: A Workbook</a></li>
+		<li><a href="https://cran.r-project.org/web/packages/spdep/vignettes/nb.pdf">Creating Neighbours (Roger Bivand’s book chapter)</a></li>
+	</ol>
+	</div>
+
+	</main>
+
+
+
+	<script src='bundle.js?version=1493934158191'></script>
+	<script src='https://pudding.cool/assets/scripts/pudding-footer.js' async></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+.intro {
+  margin: 5rem auto;
+}
+.intro__hed {
+  max-width: 55rem;
+  margin: 0 auto 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 32px;
+  line-height: 1.2;
+}
+.intro__byline {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+.intro__dek {
+  max-width: 25rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-size: 18px;
+  line-height: 1.7;
+}
+@media only screen and (min-width: 40em) {
+  .intro__hed {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .intro__hed {
+    font-size: 64px;
+    line-height: 1.2;
+  }
+}
+
+
+p {
+    margin: 1.5rem auto;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.text-container {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+.code-snippet {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+ol {
+  padding-left: 5rem;
+}
+
+ul {
+  padding-left: 5rem;
+}
