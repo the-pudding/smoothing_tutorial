@@ -41,21 +41,16 @@ p {
     margin: 1.5rem auto;
     font-size: 18px;
     line-height: 1.7;
-    padding-left: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: 2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .text-container {
-    max-width: 40rem;
+    max-width: 45rem;
     margin: 0 auto;
 }
 
-/*p .text-container{
-  /*padding-right: 1.5rem;
-  padding-left: 1.5rem;*/
-  margin-right: 1rem;
-  margin-left: 1rem;
-}*/
 
 .code-snippet {
   max-width: 60rem;
@@ -64,17 +59,21 @@ p {
 
 ol {
   padding-left: 5rem;
+  padding-right: 2rem;
 }
 
 ul {
   padding-left: 5rem;
+  padding-right: 2rem;
 }
 
 main {
   padding-bottom: 3rem;
 }
 
-
+h4 {
+  padding-left: 1rem;
+}
 .shorty-gif {
     max-width: 560px;
     margin: 0 auto;
