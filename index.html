@@ -256,114 +256,90 @@
 		</p>
 
 		<p>
-		First, we’ll have to load up a few packages:
+		First, we’ll have to load up a few packages (if you see an error about proj_defs.dat, <a href="https://github.com/OSGeo/proj.4/issues/351">this link</a> should help):
 		</p>
 	</div>
 
 		<div class="code-snippet">
-		<pre class="language-r">
-library(proj4)
+<pre class="language-r"><code>library(proj4)
 library(spdep)
 library(maptools)
-library(rgdal)
-		</pre>
-	</div>
+library(rgdal)</code></pre>
+		</div>
 
 	<div class='text-container'>
-		<p class="x-small">
-		Note: During this setup, you may encounter an error message that reads along the lines of
-		<pre class="language-r">NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared file</pre>
-		</p>
-
-		<p class="x-small">
-		Thankfully, countless other cartographers have come up against precisely this issue; follow this link for a fix!
-		</p>
-
 		<p>
 		Next, read the shapefile into R as a Large Spatial Polygon Data Frame:
 		</p>
 	</div>
 
-		<div class="code-snippet">
-		<pre class="language-r">
-LargeSpatialPolygonDF <-readShapePoly("/directory/shapefile.shp")
-		</pre>
+	<div class="code-snippet">
+		<pre class="language-r"><code>LargeSpatialPolygonDF <-readShapePoly("/directory/shapefile.shp")</code></pre>
 	</div>
 
 <div class='text-container'>
 		<p>
 		Set the projection for this shapefile, since R doesn’t read it otherwise. Below, I’m using the
-		code EPSG:4326, which refers to the same projection used by the U.S. Dept. of Defense:
+		code EPSG:4326, which refers to the same projection <a href="https://www.google.ca/search?q=WGS+84&gws_rd=cr&ei=wuELWYKHCai4jwSq5aToCw">used by the U.S. Dept. of Defense</a>:
 		</p>
 </div>
 
 <div class='code-snippet'>
-		<pre class="language-r">
-proj4string(LargeSpatialPolygonDF)<-CRS("+proj=longlat +init=epsg:4326")
-		</pre>
+		<pre class="language-r"><code>proj4string(LargeSpatialPolygonDF)<-CRS("+proj=longlat +init=epsg:4326")</code></pre>
 </div>
 
 <div class='text-container'>
 		<p>
-		If you’d like to change the projection (I like the Albers projection when looking exclusively at the U.S.),
+		If you’d like to change the projection (I like the <a href="http://spatialreference.org/ref/esri/102003/">Albers</a> projection when looking exclusively at the U.S.),
 		you can do so with another line of code:
 		</p>
 </div>
 
 <div class='code-snippet'>
-		<pre class="language-r">
-shapefile_NAD <-spTransform(LargeSpatialPolygonDF, CRS("+init=ESRI:102003"))
-		</pre>
+		<pre class="language-r"><code>shapefile_NAD <-spTransform(LargeSpatialPolygonDF, CRS("+init=ESRI:102003"))</code></pre>
 </div>
 
 <div class='text-container'>
 		<p>
-		Now we can start setting out the neighbours list. Neighbours of a location can be defined in one of two ways:
+		Now we can start setting out the neighbours list. Neighbours of a location can usually be defined in one of three ways:
 		</p>
 
 		<ol>
-		<li>As adjacent polygons</li>
-		<li>As any number of neighbours that are closest to the location; the precise number of neighbours us up to us.
-		This is calculated using the k-nearest neighbors algorithm.</li>
+		<li>As polygons that <strong>share a border</strong> with the location in question</li>
+		<li>As being <strong>within a certain distance</strong> from the location in question</li>
+		<li>As <strong>a specific number of neighbours</strong> that are closest to the location; the precise number of neighbours us up to us.
+		This is calculated using the k-nearest neighbors (KNN) algorithm.</li>
 		</ol>
 
-		</p>
-		Here’s the code for adjacent polygons:
 		<p>
-</div>
-
-<div class='code-snippet'>
-		<pre class="language-r">
-shapefile_neighbors <- poly2nb(shapefile_NAD)
-		</pre>
+		In this tutorial I'll focus on the KNN method, but if you'd like to explore the first two,
+		I'd recommend <a href="http://www.colorado.edu/ibs/crs/workshops/R_1-5-2011/root/SpatialReg.pptx">this</a> excellent powerpoint presentation by Elisabeth Root.
+		</p>
 </div>
 
 <div class='text-container'>
 		<p>
-		KNN algorithm code for 5 nearest neighbors (feel free to experiment with the number of neighbours you used
-		depending on the amount of smoothing desired):
+			The number of neighbors you us is going to significantly
+			affect the degree of smoothing, so I'd suggest using your best judgment and experimenting with a range of weights.
+			Let's set up the neighbors list using the 5 nearest neighbors for each location.
 		</p>
 </div>
 
 
 <div class='code-snippet'>
-		<pre class="language-r">
-IDs <- row.names(as(shapefile_NAD, "data.frame"))
+<pre class="language-r"><code>IDs <- row.names(as(shapefile_NAD, "data.frame"))
 coords <- coordinates(shapefile_NAD)
-kn5 <- knn2nb(knearneigh(coords, k = 5), row.names = IDs)
-		</pre>
+kn5 <- knn2nb(knearneigh(coords, k = 5), row.names = IDs)</code></pre>
 </div>
 
 <div class='text-container'>
 		<p>
-		We now have to indicate which value to give locations with no neighbours:
+		We now have to indicate which value to give locations with no neighbours. I'm not interested in those areas, so am setting this to 0:
 		</p>
 </div>
 
 <div class='code-snippet'>
-		<pre class="language-r">
-set.ZeroPolicyOption(TRUE)
-		</pre>
+<pre class="language-r"><code>set.ZeroPolicyOption(TRUE)</code></pre>
 </div>
 
 <div class='text-container'>
@@ -375,9 +351,7 @@ set.ZeroPolicyOption(TRUE)
 
 
 <div class='code-snippet'>
-		<pre class="language-r">
-kn5 <- include.self(kn5)
-		</pre>
+		<pre class="language-r"><code>kn5 <- include.self(kn5)</code></pre>
 </div>
 
 <div class='text-container'>
@@ -389,8 +363,8 @@ kn5 <- include.self(kn5)
 </div>
 
 <div class='code-snippet'>
-		<pre class="language-r code-snippet">
-working_dF <- as(shapefile_NAD, "data.frame")
+
+<pre class="language-r"><code>working_dF <- as(shapefile_NAD, "data.frame")
 working_dF[is.na(working_dF)] <-0
 
 temporary <- localG(x = as.numeric(working_dF$hs_pct), listw = nb2listw(kn5, style = "B"), zero.policy = TRUE)
@@ -403,9 +377,7 @@ new_df <- data.frame(working_dF$GEOID)
 new_df$values <- temporary
 
 # BOOM. This works. First version ready for export.
-write.table(row.names = FALSE,new_df, file = "smoothing_knn5.csv", sep=",")
-
-		</pre>
+write.table(row.names = FALSE,new_df, file = "smoothing_knn5.csv", sep=",")</code></pre>
 </div>
 
 <div class='text-container'>
