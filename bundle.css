@@ -46,7 +46,7 @@ p {
 .text-container {
     max-width: 40rem;
     margin: 0 auto;
-    /*padding-bottom: 3rem;*/
+    padding-bottom: 3rem;
 }
 
 .code-snippet {
