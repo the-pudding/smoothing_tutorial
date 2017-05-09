@@ -191,13 +191,27 @@
 		doesn't require much R knowledge.
 		</p>
 
+		<h4>Smoothing: A word of warning</h4>
+		<p>
+		Smoothing, by definition, adds a level of remove between the reader and the data. Working with data ought
+		to be, generally speaking, as transparent as possible, and thus, smoothing should be accompanied with some forethought.
+		</p>
+
+		<p>
+		Smoothing is generally used to identify hot spots, or areas that have a high likelihood of differing from neighboring
+		locations on attributes like births, crime, or disease. Through statistical means, this technique removes some of
+		the variance you'd normally see in a choropleth, and helps give a bird's eye overview to a set of results. Unless your
+		aim is to help provide a <strong>summary</strong> snapshot of <strong>granular</strong> data, smoothing may not be
+		necessary, or even desired.
+		</p>
+
 		<h4>What we’ll learn (technical version)</h4>
 
 		<p>
 		Regional smoothing in R involves the use of Roger Bivand’s <a href="https://cran.r-project.org/web/packages/spdep/index.html">
 		Spatial Dependence</a> package to create neighbors
 		lists through the <a href="https://www.rdocumentation.org/packages/spdep/versions/0.6-9/topics/nb2listw">nb2listw()</a> function,
-		and computing the <a href="http://onlinelibrary.wiley.com/store/10.1111/j.1538-4632.1995.tb00912.x/asset/j.1538-4632.1995.tb00912.x.pdf?v=1&t=iyxk31qq&s=28e2228049fb5da8fab7c2d65a55cba649c0a0d2">
+		and using this list to compute the <a href="http://onlinelibrary.wiley.com/store/10.1111/j.1538-4632.1995.tb00912.x/asset/j.1538-4632.1995.tb00912.x.pdf?v=1&t=iyxk31qq&s=28e2228049fb5da8fab7c2d65a55cba649c0a0d2">
 		Gettis-Ord statistic</a>/<a href="http://artax.karlin.mff.cuni.cz/r-help/library/spdep/html/localG.html">local G</a> statistic/z-score.
 		<p>
 
@@ -257,15 +271,13 @@
 		<div class='text-container'>
 
 		<p>
-		Geeze, I <stron>hate</strong> how accurate this map is. I don't want to know which specific counties have
-		high rates of adults with a high school-only education. Let's trade in the coarse,
-		harsh world of granular mapping for some smoooooooth <a href="https://www.youtube.com/watch?v=f2UzbFYi2Go">flavor country</a>.
+		There are some pretty clear trends here, but let's use smoothing to make these stand out a little more.
 		</p>
 
 		<h4>Code time</h4>
 
 		<p>
-		In the original <a href="http://onlinelibrary.wiley.com/store/10.1111/j.1538-4632.1995.tb00912.x/asset/j.1538-4632.1995.tb00912.x.pdf?v=1&t=j26v7aax&s=bf633ade0805dffc1e1b1cd241fda3e76c4c71b1">paper</a>
+		In the original <a href="http://onlinelibrary.wiley.com/store/10.1111/j.1538-4632.1995.tb00912.x/asset/j.1538-4632.1995.tb00912.x.pdf?v=1&t=j2hmxo3x&s=4d3322ec8e92bf2c09ac6b358997498024eacfff">paper</a>
 		that J. K. Ord and Arthur Getis published some 20 years ago, the pair suggested a
 		measure called the <strong>Getis-Ord Gi*</strong> to statistically test for geographical hot spots (e.g., of disease, crime, etc.).
 		This is the method we'll be using, and employs what is commonly referred to as the Getis-Ord local
@@ -298,7 +310,8 @@ library(rgdal)</code></pre>
 <div class='text-container'>
 		<p>
 		Set the projection for this shapefile, since R doesn’t read it otherwise. Below, I’m using the
-		code EPSG:4326, which refers to the same projection <a href="https://www.google.ca/search?q=WGS+84&gws_rd=cr&ei=wuELWYKHCai4jwSq5aToCw">used by the U.S. Dept. of Defense</a>:
+		code EPSG:4326 (a list of these codes can be found <a href="http://spatialreference.org/ref/esri/">here</a>), which refers to the same projection that's
+		<a href="https://www.google.ca/search?q=WGS+84&gws_rd=cr&ei=wuELWYKHCai4jwSq5aToCw">commonly used by the U.S. Dept. of Defense</a>:
 		</p>
 </div>
 
@@ -331,7 +344,7 @@ shapefile_df[is.na(shapefile_df)] <-0</code></pre>
 
 <div class='text-container'>
 		<p>
-		Now we can start setting out the neighbors list. neighbors of a location can usually be defined in one of three ways:
+		Now we can start setting out the neighbors list. Neighbors of a location can usually be defined in one of three ways:
 		</p>
 
 		<ol>
@@ -362,8 +375,8 @@ IDs<-row.names(as(shapefile_albers, "data.frame"))</code></pre>
 			The number of neighbors you use is going to significantly
 			affect the degree of smoothing, so I'd suggest using your best judgment and experimenting with a range.
 			Let's set up the neighbors list using the 50 nearest neighbors for each location; this is high, but is useful for the sake of illustration.
-			To make sure that we don’t get weird doughnut-type holes around each high-value area, we'll also need to include that
-			area as one of its neighbors.
+			To make sure that we don’t get weird doughnut-type holes around each high-value area, we'll need to make sure that each area is included
+			(somewhat paradoxically) in its list of neighbors.
 		</p>
 </div>
 
