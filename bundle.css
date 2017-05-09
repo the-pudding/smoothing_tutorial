@@ -41,9 +41,7 @@ p {
     margin: 1.5rem auto;
     font-size: 18px;
     line-height: 1.7;
-    padding-right: 2rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding: 0 1rem;
 }
 
 .text-container {
@@ -55,6 +53,7 @@ p {
 .code-snippet {
   max-width: 60rem;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 ol {
@@ -72,7 +71,7 @@ main {
 }
 
 h4 {
-  padding-left: 1rem;
+  padding: 0 1rem;
 }
 .shorty-gif {
     max-width: 560px;
